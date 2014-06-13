@@ -22,6 +22,8 @@ Edit script below to update file paths (input and output)
 
 Run
 
+Add bed header as appropriate
+
 
 
 python3
