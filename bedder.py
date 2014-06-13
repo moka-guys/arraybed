@@ -25,7 +25,7 @@ with open('C:/Array/TMP/CGH3.25.txt', encoding='utf-8') as probesfile:
     readprobesfile = csv.reader(probesfile, delimiter = '\t')
     line = 0
     for row in readprobesfile:
-        print(line)
+        #print(line)
         if line < 1:
             #print(row)
             row[1] = re.findall(r"[\w]+", row[1])
