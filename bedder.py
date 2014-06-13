@@ -13,6 +13,7 @@ Save as csv
 
 Edit script below to update file paths (input and output)
 Run
+Add bed header as appropriate
 
 python3
 '''
@@ -24,6 +25,7 @@ with open('C:/Array/TMP/CGH3.25.txt', encoding='utf-8') as probesfile:
     readprobesfile = csv.reader(probesfile, delimiter = '\t')
     line = 0
     for row in readprobesfile:
+        print(line)
         if line < 1:
             #print(row)
             row[1] = re.findall(r"[\w]+", row[1])
@@ -32,7 +34,7 @@ with open('C:/Array/TMP/CGH3.25.txt', encoding='utf-8') as probesfile:
             row.append(newcolumns[1])
             row.append(newcolumns[2])
             #print(row)
-            row = (row[0], row[2], row[3], row[4])
+            row = (row[2], row[3], row[4], row[0])
             #print(row)
             with open('C:/Array/TMP/CGH3.25.bed.txt', mode='w', encoding='utf-8', newline='\n') as splitfile:
                 splitfilewriter = csv.writer(splitfile, delimiter='\t')
@@ -43,7 +45,7 @@ with open('C:/Array/TMP/CGH3.25.txt', encoding='utf-8') as probesfile:
             row.append(newcolumns[0])
             row.append(newcolumns[1])
             row.append(newcolumns[2])
-            row = (row[0], row[2], row[3], row[4])
+            row = (row[2], row[3], row[4], row[0])
             with open('C:/Array/TMP/CGH3.25.bed.txt', mode='a', encoding='utf-8', newline='\n') as splitfile:
                 splitfilewriter = csv.writer(splitfile, delimiter='\t')
                 splitfilewriter.writerow(row)
